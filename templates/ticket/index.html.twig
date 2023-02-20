@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Book a Ticket{% endblock %}
+
+{% block body %}
+    <h1>Book Tickets for {{ event.nomEvent }}</h1>
+    <p>{{ event.description }}</p>
+    <p>Location: {{ event.location }}</p>
+    <p>Date: {{ event.date|date('Y-m-d H:i') }}</p>
+
+    {% if error is defined %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+
+
+        <button type="submit" class="btn btn-primary">Book Tickets</button>
+{% endblock %}

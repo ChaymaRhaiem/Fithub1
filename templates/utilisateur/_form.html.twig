@@ -1,0 +1,150 @@
+ {% extends 'base.html.twig' %}
+{% block title %}on vous souhaite la bienvenue{% endblock %}
+{% block css %}
+<style>
+    
+    .form-style {
+        padding: 50px;
+    }
+    .form-group {
+        margin-bottom: 30px;
+        width: 50%;
+    }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+    ::placeholder {
+        color: #000000!important;
+    }
+    .logo {
+        weight:100;
+
+    }
+    #role {
+         margin-bottom: 30px;
+        width: 50%;
+
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+    <div class="overlay overflow-hidden pe-n"><img src="{{ asset('images/logo.png') }}" alt="Background shape" id="logo"></div>
+    <center>
+       <div class="container">
+       {{form_start(form,{'attr':{'novalidate':'novalidate'}} )}}
+        <div class="form-group">
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'merci de taper votre nom'}}) }}
+            {% if form_errors(form.nom)is not empty %}
+                
+            <div class="alert alert-danger">
+            {{ form_errors(form.nom) }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre prenom'}}) }}
+            {% if form_errors(form.prenom)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.prenom) }}
+            </div>
+             {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre email'}}) }}
+            {% if form_errors(form.email)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.email) }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre mot de passe'}}) }}
+            {% if form_errors(form.password)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.password) }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.genre, {'attr': {'class': 'form-control', 'placeholder': 'Merci de choisir le genre'}}) }}
+            {% if form_errors(form.genre)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.genre) }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="form-group" id="role">
+            {{ form_widget(form.role, {'attr': {'class': 'form-control','placeholder': 'Merci de choisir le role'}}) }}
+            {% if form_errors(form.role)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.role) }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.date_de_naissance, {'attr': {'class': 'form-control', 'placeholder': 'Merci de choisir une date'}}) }}
+            {% if form_errors(form.date_de_naissance)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.date_de_naissance) }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="form-group" id="role">
+            {{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre numero de telephone '}}) }}
+            {% if form_errors(form.telephone)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.telephone) }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.taille, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre taille'}}) }}
+            {% if form_errors(form.taille)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.taille) }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.poids, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre poids'}}) }}
+            {% if form_errors(form.poids)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.poids) }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.specialite, {'attr': {'class': 'form-control','placeholder': 'Merci de choisir votre specialite'}}) }}  
+            {% if form_errors(form.specialite)is not empty %} 
+            <div class="alert alert-danger">
+            {{ form_errors(form.specialite) }}
+            {% endif %}
+            </div>     
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.adresse, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre adresse'}}) }}
+            {% if form_errors(form.adresse)is not empty %} 
+            <div class="alert alert-danger">
+            {{ form_errors(form.adresse) }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.experience, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper le nombre annee experience'}}) }}
+            {% if form_errors(form.experience)is not empty %} 
+            <div class="alert alert-danger">
+            {{ form_errors(form.experience) }}
+            {% endif %}
+            </div>
+        </div>
+        
+        <button class="btn btn-primary">{{button_label|default('Save')}}</button>
+        {{ form_end(form) }}
+
+    </center>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Event{% endblock %}
+
+{% block body %}
+    <h1>Edit Event</h1>
+
+   {{ form_start(form) }}
+    {{ form_row(form.nomEvent) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.date) }}
+    {{ form_row(form.location) }}
+    {{ form_row(form.type) }}
+
+    {% if event.image %}
+        <img src="{{ asset('images/event/' ~ event.image) }}" width="400" />
+    {% endif %}
+
+    {{ form_row(form.image) }}
+  <button type="submit">Save changes</button>
+{{ form_end(form) }}
+    <a href="{{ path('app_event_admin') }}">Back to Event List</a>
+{% endblock %}

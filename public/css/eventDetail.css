@@ -1,0 +1,22 @@
+.event-details-container {
+    margin-top: 50px;
+}
+
+.event-details-container img {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-height: 400px;
+}
+
+.event-details-container h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+.event-details-container p {
+    font-size: 1.2rem;
+}
+
+.event-details-container .btn-primary {
+    margin-top: 20px;
+}

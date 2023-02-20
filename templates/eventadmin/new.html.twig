@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="display:flex; justify-content:center; background-image:url('{{ asset('images/events/formbg.jpg') }}'); padding:20px;margin:10%">
+        <form style="background-color:white; padding:20px; border-radius:5px; box-shadow:0 2px 4px rgba(0,0,0,0.3)" method="post" enctype="multipart/form-data">
+            <h1>Add Event</h1>
+
+            {{ form_start(form) }}
+            {{ form_row(form.nomEvent) }}
+            {{ form_row(form.location) }}
+            {{ form_row(form.description) }}
+            {{ form_row(form.image) }}
+            {{ form_row(form._token) }}
+            {{ form_rest(form) }}
+            <button type="submit" class="btn btn-primary">Save</button>
+            {{ form_end(form) }}
+        </form>
+    </div>
+{% endblock %}
