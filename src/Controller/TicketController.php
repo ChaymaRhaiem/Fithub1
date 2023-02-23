@@ -25,15 +25,10 @@ class TicketController extends AbstractController
     {
         $ticket = new Ticket();
         $ticket->setEvent($event);
+        $form = $this->createForm(AdminTicketType::class, $ticket);
+
         $ticket->setDisponibilite(true); // set disponibilite to true by default
-    
-        $form = $this->createFormBuilder($ticket)
-            ->add('prix', NumberType::class)
-            ->add('nombreMax', NumberType::class)
-            ->add('disponibilite', CheckboxType::class, [
-                'required' => false,
-            ])
-            ->getForm();
+
     
         $form->handleRequest($request);
     

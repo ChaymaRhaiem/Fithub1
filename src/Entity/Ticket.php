@@ -14,12 +14,19 @@ class Ticket
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\NotNull(message: 'Please enter the availability of the ticket')]
+
     private ?bool $disponibilite = null;
 
     #[ORM\Column]
+    #[Assert\NotNull(message: 'Please enter the price of the ticket')]
+    #[Assert\Positive(message: 'The price must be a positive integer')]
+
     private ?int $prix = null;
 
     #[ORM\Column]
+    #[Assert\NotNull(message: 'Please enter the maximum number of tickets')]
+    #[Assert\Positive(message: 'The maximum number of tickets must be a positive integer')]
     private ?int $nombreMax = null;
 
     #[ORM\ManyToOne(inversedBy: 'tickets')]
@@ -29,7 +36,14 @@ class Ticket
     private ?Utilisateur $utilisateurs = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:"Please enter your name")]
+    #[Assert\NotBlank(message: 'Please enter your name')]
+    #[Assert\Length(
+        min: 4,
+        max: 50,
+        minMessage: 'Your name must be at least {{ limit }} characters long',
+        maxMessage: 'Your name cannot be longer than {{ limit }} characters'
+    )]
+
    private ?string $nom = null;
 
     #[ORM\Column(length:255)]
@@ -39,6 +53,7 @@ class Ticket
 
 
     #[ORM\Column(type:"datetime")]
+    
    private ?\DateTimeInterface $bookingDate = null;
 
 

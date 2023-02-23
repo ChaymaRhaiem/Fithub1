@@ -1,19 +1,29 @@
 {% extends 'baseFront.html.twig' %}
+
 {% block body %}
-    <h1>Book tickets for {{ event.nomEvent }}</h1>
+  <div style="width: 50%; margin: 0 auto;">
+    <h1 style="text-align: center; font-size: 36px;">Book Tickets for {{ event.nomEvent }}</h1>
 
+       {{form_start(form,{'attr':{'novalidate':'novalidate'}} )}}
 
-    {% if form is defined %}
-        {{ form_start(form) }}
+      <div style="display: flex; flex-direction: column; margin-bottom: 20px;">
+        <label style="font-size: 18px; margin-bottom: 5px;">Your Name:</label>
+        {{ form_row(form.nom, { 'attr': { 'class': 'form-control' } }) }}
+                {{ form_errors(form.nom) }}
 
-        {{ form_row(form.nom, { 'label': 'Your name' }) }}
+      </div>
 
-        {{ form_row(form.email, { 'label': 'Your email' }) }}
+      <div style="display: flex; flex-direction: column; margin-bottom: 20px;">
+        <label style="font-size: 18px; margin-bottom: 5px;">Your Email:</label>
+        {{ form_row(form.email, { 'attr': { 'class': 'form-control' } }) }}
+                {{ form_errors(form.email) }}
 
-        {{ form_widget(form) }}
+      </div>
 
-        <button type="submit">Book tickets</button>
+      {{ form_widget(form) }}
 
-        {{ form_end(form) }}
-    {% endif %}
+      <button type="submit" onclick="return confirm('Are you sure you want to book this event?')" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 20px;">Book Ticket</button>
+
+      {{ form_end(form) }}
+  </div>
 {% endblock %}

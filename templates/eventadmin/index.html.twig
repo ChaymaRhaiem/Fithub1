@@ -27,7 +27,6 @@
                     <td>{{ event.type }}</td>
                     <td>{{ event.date|date('Y-m-d H:i:s') }}</td>
                     <td>
-                        <a href="{{ path('app_event_admin_new', {id: event.id}) }}" class="btn btn-primary">Add</a>
 
                         <a href="{{ path('event_edit', {id: event.id}) }}" class="btn btn-primary">Edit</a>
                         <form action="{{ path('event_delete', {id: event.id}) }}" method="post" style="display: inline-block">
@@ -43,4 +42,6 @@
             {% endfor %}
         </tbody>
     </table>
+                            <a href="{{ path('app_event_admin_new') }}" class="btn btn-primary">Add</a>
+
 {% endblock %}

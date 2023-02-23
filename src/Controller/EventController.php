@@ -78,7 +78,6 @@ class EventController extends AbstractController
             $image = $form->get('image')->getData();
 
             // this condition is needed because the 'brochure' field is not required
-            // so the PDF file must be processed only when a file is uploaded
             if ($image) {
                 $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
@@ -95,7 +94,7 @@ class EventController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
 
-                // updates the 'brochureFilename' property to store the PDF file name
+                // updates the 'brochureFilename' property to store the  file name
                 // instead of its contents
                 $event->setImage($newFilename);
             }
