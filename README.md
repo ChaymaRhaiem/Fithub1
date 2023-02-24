@@ -3,9 +3,9 @@
 ##### This module provides functionality for managing events, booking tickets, and accessing the backoffice for event administrators.
 
 ### Installation
-Clone the repository.
-Run composer install to install dependencies.
-Configure your database connection in the .env file.
+Clone the repository. </br>
+Run composer install to install dependencies. </br>
+Configure your database connection in the .env file. </br>
 Run php bin/console doctrine:migrations:migrate to create the database schema.
 ### Usage
 #### Viewing Events
